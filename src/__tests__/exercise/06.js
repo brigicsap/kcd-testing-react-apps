@@ -27,10 +27,21 @@ function deferred() {
 
 test('displays the users current location', async () => {
   // 🐨 create a fakePosition object that has an object called "coords" with latitude and longitude
-  // 📜 https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPosition
-  //
+  const fakePosition = {
+    coords: {
+      latitude: 35,
+      longitude: 139
+    }
+  }
   // 🐨 create a deferred promise here
-  //
+  const deferred = () => {
+    let resolve, reject
+    const promise = new Promise((res,rej) => {
+      resolve = res
+      reject= rej
+    })
+    return {promise, resolve, reject}
+  }
   // 🐨 Now we need to mock the geolocation's getCurrentPosition function
   // To mock something you need to know its API and simulate that in your mock:
   // 📜 https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
